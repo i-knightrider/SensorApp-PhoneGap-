@@ -21,9 +21,20 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
+   
 function onDeviceReady() {
-    document.getElementById('message').innerHTML="Welcome to Aayush's Device!";
-
+    //Note:- To use the myFunction() method, i had to change 'unsafe-eval' to 'unsafe-inline' in meta tag in Content Security Policy!
+    //And also we have to paste myFunction() method outside onDeviceReady() method to run using the inline method tags!
+    //To avoid this, we will use this event listener method:
+    document.getElementById('addButton').addEventListener('click', myFunction);
+    function myFunction() {
+        var one = document.getElementById('first').value;
+        var two = document.getElementById('second').value;
+        var sum = 0;
+        sum = Number(one) + Number(two); 
+        document.getElementById('data').innerHTML=sum;
+        }
+    // Cordova is now initialized. Have fun!
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    document.getElementById('deviceready').classList.add('ready'); 
 }
