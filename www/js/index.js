@@ -23,10 +23,10 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     //get the default accelerometer:
-    //navigator.accelerometer.getCurrentAcceleration(onSuccess , onError);
+    navigator.accelerometer.getCurrentAcceleration(onSuccess , onError);
     //for updating at regular intervals:
-    var options = {frequency: 3000}
-    navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+    //var options = {frequency: 3000}
+    //navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     function onSuccess(acc){
         document.getElementById("x-axis").value = acc.x;
         document.getElementById("y-axis").value = acc.y;
